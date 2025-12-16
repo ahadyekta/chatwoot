@@ -56,6 +56,7 @@ export default {
     v-if="globalConfig.brandName && !disableBranding"
     class="px-0 py-3 flex justify-center"
   >
+    <!--  Remove this part for white labeling -->
     <a
       :href="brandRedirectURL"
       rel="noreferrer noopener nofollow"

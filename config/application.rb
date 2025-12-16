@@ -38,6 +38,29 @@ module Chatwoot
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    # # 1. Allow Chatwoot to be embedded by removing the restrictive header
+    # config.action_dispatch.default_headers.delete('X-Frame-Options')
+
+    # # OPTIONAL: Explicitly set it to ALLOWALL if deletion doesn't work for your setup
+    # # config.action_dispatch.default_headers.merge!({
+    # #   'X-Frame-Options' => 'ALLOWALL'
+    # # })
+
+    # # 2. Update Content Security Policy to allow all domains
+    # # This is critical for modern browsers that prefer CSP over X-Frame-Options
+    # config.content_security_policy do |policy|
+    #   policy.frame_ancestors :https, :http
+    # end
+
+
+    
+    # Allow embedding in iframes from localhost:3002
+    config.action_dispatch.default_headers.merge!({
+      'X-Frame-Options' => 'ALLOWALL',
+      'Content-Security-Policy' => "frame-ancestors *"
+    })
+    
+
     config.eager_load_paths << Rails.root.join('lib')
     config.eager_load_paths << Rails.root.join('enterprise/lib')
     config.eager_load_paths << Rails.root.join('enterprise/listeners')
