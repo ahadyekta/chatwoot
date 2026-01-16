@@ -1,9 +1,10 @@
-import { LocalStorage } from 'shared/helpers/localStorage';
-import { LOCAL_STORAGE_KEYS } from 'dashboard/constants/localStorage';
+// import { LocalStorage } from 'shared/helpers/localStorage';
+// import { LOCAL_STORAGE_KEYS } from 'dashboard/constants/localStorage';
 
 export const setColorTheme = isOSOnDarkMode => {
-  const selectedColorScheme =
-    LocalStorage.get(LOCAL_STORAGE_KEYS.COLOR_SCHEME) || 'auto';
+  // const selectedColorScheme =
+  //   LocalStorage.get(LOCAL_STORAGE_KEYS.COLOR_SCHEME) || 'auto';
+  const selectedColorScheme = 'light';
   if (
     (selectedColorScheme === 'auto' && isOSOnDarkMode) ||
     selectedColorScheme === 'dark'
