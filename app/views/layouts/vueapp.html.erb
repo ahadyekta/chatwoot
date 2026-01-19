@@ -47,6 +47,7 @@
         signupEnabled: '<%= @global_config['ENABLE_ACCOUNT_SIGNUP'] %>',
         isEnterprise: '<%= @global_config['IS_ENTERPRISE'] %>',
         isMfaEnabled: '<%= Chatwoot.mfa_enabled? %>',
+        restrictedMode: <%= ActiveModel::Type::Boolean.new.cast(ENV.fetch('CW_RESTRICTED_MODE', false)).to_json %>,
         <% if @global_config['IS_ENTERPRISE'] %>
         enterprisePlanName: '<%= @global_config['INSTALLATION_PRICING_PLAN'] %>',
         <% end %>
