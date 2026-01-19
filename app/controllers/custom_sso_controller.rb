@@ -73,9 +73,11 @@ class CustomSsoController < ApplicationController
       Rails.logger.info "CustomSso: Session ID: #{session.id.inspect}"
       Rails.logger.info "CustomSso: Current User: #{current_user&.email}"
 
+      Rails.logger.info "CustomSso: params[:redirect_url]: #{params[:redirect_url]}"
       # Redirect
       account_id = user.accounts.first&.id
-      redirect_path = account_id ? "/app/accounts/#{account_id}/dashboard" : "/app/dashboard"
+      valid_redirect_url = params[:redirect_url] if params[:redirect_url]&.start_with?('/') && !params[:redirect_url]&.start_with?('//')
+      redirect_path = valid_redirect_url || (account_id ? "/app/accounts/#{account_id}/dashboard" : "/app/dashboard")
       
       Rails.logger.info "CustomSso: Redirecting to #{redirect_path}"
       redirect_to redirect_path
