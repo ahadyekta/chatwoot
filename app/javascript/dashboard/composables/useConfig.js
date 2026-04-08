@@ -36,11 +36,18 @@ export function useConfig() {
    */
   const enterprisePlanName = config.enterprisePlanName;
 
+  /**
+   * Indicates whether restricted mode is enabled.
+   * @type {boolean}
+   */
+  const restrictedMode = config.restrictedMode;
+
   return {
     hostURL,
     vapidPublicKey,
     enabledLanguages,
     isEnterprise,
     enterprisePlanName,
+    restrictedMode,
   };
 }
