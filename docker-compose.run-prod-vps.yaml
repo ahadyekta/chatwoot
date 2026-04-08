@@ -1,0 +1,15 @@
+services:
+  base:
+    image: ahadyekta/chatwoot:production
+
+  rails:
+    image: ahadyekta/chatwoot:production
+
+  sidekiq:
+    image: ahadyekta/chatwoot:production
+
+  postgres:
+    environment:
+      POSTGRES_DB: ${POSTGRES_DATABASE:-chatwoot_production}
+      POSTGRES_USER: ${POSTGRES_USERNAME:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}

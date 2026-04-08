@@ -1,0 +1,9 @@
+services:
+  base:
+    build:
+      args:
+        BUNDLE_WITHOUT: "development:test"
+        EXECJS_RUNTIME: "Node"
+        RAILS_ENV: "production"
+        RAILS_SERVE_STATIC_FILES: "true"
+    image: chatwoot:production

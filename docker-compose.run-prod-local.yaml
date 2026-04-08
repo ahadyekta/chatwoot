@@ -1,0 +1,15 @@
+services:
+  base:
+    image: chatwoot:production
+
+  rails:
+    image: chatwoot:production
+
+  sidekiq:
+    image: chatwoot:production
+
+  postgres:
+    environment:
+      - POSTGRES_DB=chatwoot_production
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=fgh29as32
