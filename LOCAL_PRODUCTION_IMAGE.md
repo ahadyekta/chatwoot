@@ -280,7 +280,6 @@ docker compose \
 This repo is expected to rely on `master`.
 The normal flow is:
 
-- merge your feature work into local `master`
 - rebase local `master` on top of `upstream/master`
 - push the updated `master` branch to `origin/master`
 
@@ -289,15 +288,6 @@ If `upstream` is not configured yet, add it once:
 ```bash
 git remote add upstream https://github.com/chatwoot/chatwoot.git
 git fetch upstream
-```
-
-If your work is currently on a feature branch, merge it back to `master` first:
-
-```bash
-git checkout master
-git pull --ff-only origin master
-git merge knowtific-labels
-git push origin master
 ```
 
 Update `master` from the latest Chatwoot release branch:
